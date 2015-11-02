@@ -1,0 +1,3 @@
+/^wolframalpha (.*?)$/i
+/^wolfram (.*?)$/i
+/^wa (.*?)$/i
