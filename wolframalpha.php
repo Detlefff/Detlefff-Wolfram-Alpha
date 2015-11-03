@@ -26,7 +26,7 @@ class wolframalpha extends Script
 					//$caption = $pod->attributes['title'] . "\n" . $subpod->plaintext;
 					//$this->send($subpod->image->attributes['src'], 'image', '', $caption);
 
-					$resultMessage .= $pod->attributes['title'] . "\n" . $subpod->plaintext . "\n\n";
+					$resultMessage .= $pod->attributes['title'] . ":\n" . $subpod->plaintext . "\n\n";
 				}
 			}
 			$this->send($resultMessage);
