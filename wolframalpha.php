@@ -20,12 +20,16 @@ class wolframalpha extends Script
 		}
 
 		if ( count($response->getPods()) > 0 ) {
+			$resultMessage = '';
 			foreach ( $response->getPods() as $pod ) {
 				foreach ( $pod->getSubpods() as $subpod ) {
-					$caption = $pod->attributes['title'] . "\n" . $subpod->plaintext;
-					$this->send($subpod->image->attributes['src'], 'image', '', $caption);
+					//$caption = $pod->attributes['title'] . "\n" . $subpod->plaintext;
+					//$this->send($subpod->image->attributes['src'], 'image', '', $caption);
+
+					$resultMessage += $pod->attributes['title'] . "\n" . $subpod->plaintext . "\n";
 				}
 			}
+			$this->send($resultMessage);
 		}
     }
 }
