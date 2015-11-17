@@ -5,7 +5,7 @@ class wolframalpha extends Script
 {
 	private $appID = '';
 
-    protected $helpMessage = "'wolfram EXPRESSION'\n'wolframalpha EXPRESSION'\n'wa EXPRESSION'";
+    protected $helpMessage = "'wolfram EXPRESSION'\n'wolframalpha EXPRESSION'\n'wa EXPRESSION'\nYou can append 'pic' to every query to get pictures";
     protected $description = 'Return the definition of the given expression from Wolfram|Alpha';
 
     public function run()
@@ -23,8 +23,11 @@ class wolframalpha extends Script
 			$resultMessage = '';
 			foreach ( $response->getPods() as $pod ) {
 				foreach ( $pod->getSubpods() as $subpod ) {
-					//$caption = $pod->attributes['title'] . "\n" . $subpod->plaintext;
-					//$this->send($subpod->image->attributes['src'], 'image', '', $caption);
+
+					if(isset($this->matches[2]) && $this->matches[2] == 'pic') {
+						$caption = $pod->attributes['title'] . "\n" . $subpod->plaintext;
+						$this->send($subpod->image->attributes['src'], 'image', '', $caption);
+					}
 
 					$resultMessage .= $pod->attributes['title'] . ":\n" . $subpod->plaintext . "\n\n";
 				}
