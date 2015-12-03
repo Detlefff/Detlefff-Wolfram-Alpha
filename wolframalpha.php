@@ -5,8 +5,8 @@ class wolframalpha extends Script
 {
 	private $appID = '';
 
-    protected $helpMessage = "'wolfram EXPRESSION'\n'wolframalpha EXPRESSION'\n'wa EXPRESSION'\nYou can append 'pic' to every query to get pictures";
-    protected $description = 'Return the definition of the given expression from Wolfram|Alpha';
+    protected static $helpMessage = "'wolfram EXPRESSION'\n'wolframalpha EXPRESSION'\n'wa EXPRESSION'\nYou can append 'pic' to every query to get pictures";
+    protected static $description = 'Return the definition of the given expression from Wolfram|Alpha';
 
     public function run()
     {
